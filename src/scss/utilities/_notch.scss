@@ -1,0 +1,7 @@
+// The stepped corner as a class, for the blocks that are not cards or panels.
+
+@use '../abstracts' as *;
+
+.vx-notch {
+  @include stepped-corners;
+}

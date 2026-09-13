@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+/* --- cards (generic) --- */
+
+.vx-cards { margin-top: 1.25rem; }
+.vx-card {
+  @include stepped-corners;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  background: var(--raise);
+  color: inherit;
+  transition: background 0.18s;
+}
+.vx-card:hover { background: var(--raise-hi); color: inherit; }
+.vx-card--lead {
+  padding: 2rem;
+  background: linear-gradient(100deg, var(--wash), transparent 62%), var(--raise);
+}
+.vx-card__art { display: block; width: 60px; height: auto; }
+.vx-card__art--sm { width: 32px; margin-bottom: 0.875rem; }
+.vx-card__kind {
+  font-family: var(--v-mono);
+  font-size: 0.6875rem;
+  color: var(--mute);
+}
+.vx-card__title {
+  margin: 0.5rem 0;
+  font-family: var(--v-display);
+  font-size: 1.375rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.vx-card--lead .vx-card__title { font-size: clamp(1.625rem, 3.4vw, 2.25rem); }
+.vx-card__text {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--mute);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+@include small-only {
+  .vx-card--lead .text-right { text-align: left; }
+  .vx-card--lead .vx-card__art { margin-bottom: 1rem; }
+}
+

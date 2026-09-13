@@ -1,0 +1,68 @@
+[
+  {
+    "id": "shieldbreak",
+    "type": "Writeup",
+    "year": 2026,
+    "title": "shieldbreak",
+    "href": "/research/shieldbreak/",
+    "description": "I forgot the passphrase to one of my own SSH keys. It was still loaded in the agent, so I pulled it back out of memory. Here is how.",
+    "lead": true,
+    "date": "2026-02-01"
+  },
+  {
+    "id": "cve-2025-9427",
+    "type": "Advisory",
+    "year": 2025,
+    "title": "CVE-2025-9427",
+    "href": "https://www.cve.org/CVERecord?id=CVE-2025-9427",
+    "description": "Reflected XSS in the Lemonsoft WordPress add-on. Lemonsoft is a Finnish ERP company listed on Nasdaq First North in Helsinki.",
+    "severity": {
+      "band": "high",
+      "label": "CVSS 4.0 8.4 high"
+    },
+    "affected": "Lemonsoft add-on 2025.7.1",
+    "date": "2026-01-13"
+  },
+  {
+    "id": "cve-2022-3246",
+    "type": "Advisory",
+    "year": 2022,
+    "title": "CVE-2022-3246",
+    "href": "https://www.cve.org/CVERecord?id=CVE-2022-3246",
+    "description": "SQL injection in Blog2Social, a plugin on 50,000-plus sites at the time.",
+    "severity": {
+      "band": "high",
+      "label": "CVSS 3.1 8.8 high"
+    },
+    "affected": "Blog2Social < 6.9.10",
+    "date": "2022-10-25"
+  },
+  {
+    "id": "cve-2022-3494",
+    "type": "Advisory",
+    "year": 2022,
+    "title": "CVE-2022-3494",
+    "href": "https://www.cve.org/CVERecord?id=CVE-2022-3494",
+    "description": "SQL injection in Complianz, which ran on over a million sites.",
+    "severity": {
+      "band": "high",
+      "label": "CVSS 3.1 8.8 high"
+    },
+    "affected": "Complianz < 6.3.4, premium < 6.3.6",
+    "date": "2022-11-07"
+  },
+  {
+    "id": "cve-2022-3247",
+    "type": "Advisory",
+    "year": 2022,
+    "title": "CVE-2022-3247",
+    "href": "https://www.cve.org/CVERecord?id=CVE-2022-3247",
+    "description": "Server-side request forgery in Blog2Social.",
+    "severity": {
+      "band": "med",
+      "label": "CVSS 3.1 6.5 medium"
+    },
+    "affected": "Blog2Social < 6.9.10",
+    "date": "2022-10-25"
+  }
+]

@@ -1,0 +1,64 @@
+# Build the site and publish it to the deploy branch.
+#
+# The default branch holds the source: pages, SCSS and assets. It is never what
+# GitHub Pages serves. This job builds the site — Eleventy for the HTML, Vite
+# for the assets — and force-pushes the dist/ it produces to `gh-pages`, which
+# is the branch Pages is configured to serve from, so the two never have to be
+# kept in sync by hand.
+#
+# Pages builds Jekyll and nothing else on its own, so every other generator
+# arrives this way. public/.nojekyll keeps Pages from running the output back
+# through Jekyll once it lands.
+#
+# One-time setup, in Settings -> Pages: source "Deploy from a branch", branch
+# `gh-pages`, folder `/`. CNAME is part of dist/, so the custom domain survives
+# every deploy.
+name: Deploy
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Formatting is checked, not applied: CI never rewrites the source. A
+      # failure here means someone skipped `npm run format`.
+      - name: Check formatting
+        run: npx prettier --check .
+
+      - run: npm run build
+
+      # A deploy is a snapshot, not a history: the branch is one commit, forced.
+      # Nothing reads its log, and keeping it short keeps the clone small.
+      - name: Publish dist/ to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist
+          git init -q -b gh-pages
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build ${GITHUB_SHA::7}"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            gh-pages

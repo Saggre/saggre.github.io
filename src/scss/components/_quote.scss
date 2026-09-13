@@ -1,0 +1,48 @@
+/* --- quotes: small marginal asides, never a centrepiece --- */
+
+.vx-quote {
+  max-width: 34rem;
+  margin: 2.5rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--line);
+}
+.vx-quote__mark {
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin-bottom: 0.875rem;
+  background: var(--accent);
+  box-shadow: 8px 0 0 var(--accent), 0 7px 0 var(--accent-2), 8px 7px 0 var(--accent-2);
+}
+.vx-quote__text {
+  margin: 0;
+  font-family: var(--v-body);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-style: italic;
+}
+.vx-quote__gloss {
+  margin: 0.375rem 0 0;
+  font-family: var(--v-mono);
+  font-size: 0.75rem;
+  color: var(--mute);
+}
+.vx-quote__by {
+  margin: 0.625rem 0 0;
+  font-family: var(--v-mono);
+  font-size: 0.6875rem;
+  color: var(--mute);
+}
+.vx-quote__by::before { content: "— "; }
+
+/* Footer quote: even quieter. */
+.vx-foot__quote {
+  max-width: 30rem;
+  margin: 0 0 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+  border-left: 0;
+  padding-left: 0;
+}
+.vx-foot__quote .vx-quote__text { font-size: 1rem; color: var(--mute); font-style: italic; }

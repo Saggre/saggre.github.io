@@ -1,0 +1,196 @@
+---
+layout: base.html
+title: "shieldbreak · Sakri (Rafael) Koskimies"
+description: "I forgot the passphrase to one of my own SSH keys. It was still loaded in the agent, so I pulled it back out of memory. This is the tool that does it."
+schema: shieldbreak
+ogTitle: "shieldbreak"
+ogType: article
+---
+        <article class="art">
+          <div class="grid-container">
+            <nav class="art-crumbs" aria-label="Breadcrumb">
+              <a href="/writing/">Writing</a
+              ><span class="art-crumbs__sep" aria-hidden="true">/</span><span>Writeup</span>
+            </nav>
+            <header class="art-head">
+              <p class="vx-label">
+                <svg class="vx-orn" viewBox="0 0 28 8" aria-hidden="true">
+                  <use href="#px-orn" />
+                </svg>
+                Writeup
+              </p>
+              <h1 class="art-title">shieldbreak</h1>
+              <p class="art-standfirst">
+                I forgot the passphrase to a SSH key. It was still loaded in the agent,
+                so I pulled it from memory. This is the tool that I used to do it.
+              </p>
+              <div class="art-meta">
+                <span class="art-meta__item">2026</span><span class="art-meta__item">OpenSSH</span>
+              </div>
+            </header>
+            <div class="grid-x grid-margin-x art-body">
+              <aside class="cell large-3 show-for-large">
+                <nav class="art-toc" aria-label="On this page">
+                  <p class="art-toc__label">On this page</p>
+                  <a class="art-toc__link" href="#shielding">What shielding is</a>
+                  <a class="art-toc__link" href="#credit">Whose technique</a>
+                  <a class="art-toc__link" href="#changed">What I changed</a>
+                  <a class="art-toc__link" href="#how">How it works</a>
+                  <a class="art-toc__link" href="#run">Running it</a>
+                </nav>
+              </aside>
+              <div class="cell small-12 large-9">
+                <div class="prose">
+                  <aside class="art-tldr">
+                    <p class="art-tldr__label">tl;dr</p>
+                    <p class="art-tldr__text">
+                      shieldbreak takes a saved memory dump of ssh-agent and gets an unencrypted private
+                      key from it. The method is Piergiovanni Cipolloni's from 2021. What I
+                      did was take his live-process procedure and turn it into an offline tool
+                      that runs in Docker.
+                    </p>
+                  </aside>
+                  <p class="prose__lead">
+                    I wrote this because I forgot the passphrase to one of my own SSH keys. The key
+                    was still loaded in ssh-agent, which keeps it in memory in a shielded form, so
+                    instead of rotating it everywhere I dumped the agent's memory and pulled the key.
+                  </p>
+                  <h2 id="shielding">What shielding is</h2>
+                  <p>
+                    When you run ssh-add, the agent does not keep the key sitting in plaintext.
+                    Since OpenSSH 8.0 it shields it. It generates a random 16 KB prekey, hashes that
+                    down to a symmetric key, and encrypts the private key with it for security reasons.
+                  </p>
+                  <p>
+                    That covers a partial read. It does nothing against someone who can read agent's memory in full, 
+                    because then they have the prekey sitting right next to the ciphertext. 
+                    Anyone who can take one already has the access needed to compromise the agent.
+                  </p>
+                  <aside id="credit" class="art-note">
+                    <p class="art-note__label">Whose technique this is</p>
+                    <p class="art-note__text">
+                      The method is not mine. Piergiovanni Cipolloni of HN Security wrote it up in
+                      July 2021, including the sshkey struct layout and the use of
+                      sshkey_unshield_private() to rebuild the key. Read his article first. This is
+                      a reimplementation of what he described, and the actual unshield still leans
+                      on the function he identified.
+                    </p>
+                    <a
+                      class="art-note__cite"
+                      href="https://security.humanativaspa.it/openssh-ssh-agent-shielded-private-key-extraction-x86_64-linux/"
+                      >OpenSSH ssh-agent shielded private key extraction, HN Security, 2021</a
+                    >
+                  </aside>
+                  <div class="art-table-wrap">
+                    <table class="art-table">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">HN Security, 2021</th>
+                          <th scope="col">shieldbreak</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Target</th>
+                          <td>Live ssh-agent process</td>
+                          <td>Saved ELF core dump</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Finding the key</th>
+                          <td>gdb and a heap search</td>
+                          <td>Go parser reads the struct by offset</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Unshield</th>
+                          <td>sshkey_unshield_private() (the OpenSSH call that reverses shielding)</td>
+                          <td>Same</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Running it</th>
+                          <td>A debugger session by hand</td>
+                          <td>make build, then one docker run</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <h2 id="how">How it works</h2>
+                  <p>
+                    There are two steps. First a small Go program reads the dump. It walks the ELF
+                    segments, finds the sshkey struct, and writes out two files: the shielded key
+                    blob and the 16 KB prekey.
+                  </p>
+                  <figure class="art-code">
+                    <figcaption class="art-code__cap">shielded-key-parser</figcaption>
+                    <pre class="art-code__pre"><code># read the dump, locate the key by its comment,
+# and write out the shielded blob and the prekey
+parse --dump core.mem --comment test@key --out ./keydata</code></pre>
+                  </figure>
+                  <p>
+                    Then a gdb script loads a debug build of ssh-keygen, rebuilds a ssh key from
+                    those two files, calls sshkey_unshield_private(), and saves the plaintext key.
+                    That last step is unchanged from the original.
+                  </p>
+                  <p>
+                    Note: The struct offsets are specific to one OpenSSH build on x86_64. A different
+                    build can lay the struct out differently, so the offsets in ssh_key_reader.go may have to be updated in the future.
+                  </p>
+                  <h2 id="run">Running it</h2>
+                  <p>
+                    Everything is in a container, so you do not need a matching OpenSSH build on
+                    your machine. The repo ships a generator that makes a real ssh-agent dump to
+                    test with, and the e2e test recovers a key and checks it against the
+                    original by fingerprint.
+                  </p>
+                  <figure class="art-code">
+                    <figcaption class="art-code__cap">shell</figcaption>
+                    <pre
+                      class="art-code__pre"><code>make build                     # compiles a debug ssh-keygen and the parser
+make run-test-dump-generator   # writes a test core dump to ./dumps
+
+docker run --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
+  -e KEY_COMMENT=test@key -e DUMP_PATH=/data/agent.mem \
+  -v &quot;$(pwd)/dumps:/data:ro&quot; -v &quot;$(pwd)/dumps:/out&quot; shieldbreak</code></pre>
+                  </figure>
+                  <p>
+                    The code is on GitHub under MIT, with the parser, the gdb script, the Docker
+                    build and the tests. If your own key is still loaded in an agent, this is the best 
+                    way to get it back without the passphrase.
+                  </p>
+                </div>
+                <footer class="art-foot">
+                  <div class="art-share">
+                    <a class="art-share__link" href="https://github.com/Saggre/shieldbreak"
+                      >GitHub</a
+                    >
+                    <a class="art-share__link" href="/feed.xml">RSS</a>
+                  </div>
+                </footer>
+                <nav class="art-next" aria-label="More writing">
+                  <p class="vx-label">
+                    <svg class="vx-orn" viewBox="0 0 28 8" aria-hidden="true">
+                      <use href="#px-orn" />
+                    </svg>
+                    More writing
+                  </p>
+                  <a class="art-next__item" href="https://www.cve.org/CVERecord?id=CVE-2025-9427"
+                    ><svg class="art-next__art" viewBox="0 0 21 20" aria-hidden="true">
+                      <use href="#px-cube" /></svg
+                    ><span class="art-next__body"
+                      ><span class="art-next__kind">Advisory, 2025</span
+                      ><b class="art-next__title">CVE-2025-9427</b></span
+                    ></a
+                  >
+                  <a class="art-next__item" href="https://www.cve.org/CVERecord?id=CVE-2022-3246"
+                    ><svg class="art-next__art" viewBox="0 0 21 20" aria-hidden="true">
+                      <use href="#px-cube" /></svg
+                    ><span class="art-next__body"
+                      ><span class="art-next__kind">Advisory, 2022</span
+                      ><b class="art-next__title">CVE-2022-3246</b></span
+                    ></a
+                  >
+                </nav>
+              </div>
+            </div>
+          </div>
+        </article>

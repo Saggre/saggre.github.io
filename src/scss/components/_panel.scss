@@ -1,0 +1,53 @@
+@use '../abstracts' as *;
+
+/* --- panel: bordered gradient box (generic; was the newsletter box) --- */
+
+.vx-panel {
+  @include stepped-corners;
+  position: relative;
+  padding: 2.75rem;
+  background:
+    radial-gradient(50% 130% at 0% 50%, var(--wash), transparent 62%),
+    radial-gradient(50% 130% at 100% 50%, var(--wash-2), transparent 62%),
+    var(--raise);
+}
+.vx-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--line) 50%, var(--accent-2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.vx-panel__title {
+  margin: 0 0 0.625rem;
+  font-family: var(--v-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+.vx-panel__text {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--mute);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.vx-panel__cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.875rem 1.375rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+.vx-panel__cta:hover { background: var(--accent-2); color: var(--on-accent); }
+
+@include small-only {
+  .vx-panel { padding: 1.75rem 1.25rem; }
+}

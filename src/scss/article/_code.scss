@@ -1,0 +1,29 @@
+/* --- code block --- */
+
+.art-code {
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--code-bg);
+}
+.art-code__cap {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--raise);
+  font-family: var(--v-mono);
+  font-size: 0.6875rem;
+  color: var(--mute);
+}
+.art-code__pre { margin: 0; padding: 1.25rem 1rem; overflow-x: auto; }
+/* Foundation underlines <code> inside a <pre>; kill it. */
+.art-code__pre code {
+  font-family: var(--v-mono);
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--code-ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+}

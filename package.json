@@ -1,0 +1,21 @@
+{
+  "name": "saggre.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal site of Sakri Koskimies. Static HTML, SCSS, no framework.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "format": "prettier --write .",
+    "check": "prettier --check . && eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-vite": "^8.0.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.104.0",
+    "vite": "^8.2.2"
+  }
+}

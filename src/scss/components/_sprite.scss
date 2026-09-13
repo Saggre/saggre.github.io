@@ -1,0 +1,9 @@
+/* Sprites: crispEdges has to be on the instance, not just the sheet. */
+.vx-mark__glyph,
+.vx-orn,
+.vx-pip,
+.vx-hero__art,
+.vx-card__art { shape-rendering: crispEdges; }
+
+.vx-orn { width: 24px; height: 7px; margin-right: 0.625rem; vertical-align: middle; }
+.vx-pip { width: 14px; height: 7px; margin-right: 0.75rem; flex: none; }

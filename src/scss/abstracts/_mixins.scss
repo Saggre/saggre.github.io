@@ -1,0 +1,13 @@
+// Stepped corners cut on the pixel step: the notch that makes a card look
+// carved out of the same grid as the sprites. Cards and panels take it by
+// default; `.vx-notch` (utilities/_notch.scss) hands it to anything else.
+
+@mixin stepped-corners {
+  clip-path: polygon(
+    0 var(--unit), var(--unit) var(--unit), var(--unit) 0,
+    calc(100% - var(--unit)) 0, calc(100% - var(--unit)) var(--unit), 100% var(--unit),
+    100% calc(100% - var(--unit)), calc(100% - var(--unit)) calc(100% - var(--unit)),
+    calc(100% - var(--unit)) 100%, var(--unit) 100%,
+    var(--unit) calc(100% - var(--unit)), 0 calc(100% - var(--unit))
+  );
+}

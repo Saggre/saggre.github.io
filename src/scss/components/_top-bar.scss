@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+/* --- top bar --- */
+
+.vx-bar { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.vx-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.vx-mark__glyph { width: 20px; height: 20px; display: block; }
+.vx-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.75rem; }
+.vx-nav__link { color: var(--mute); font-size: 0.875rem; }
+.vx-nav__link:hover { color: var(--accent); }
+
+@include small-only {
+  .vx-nav { margin-top: 0.5rem; }
+  .vx-nav__link { display: inline-block; padding: 0.625rem 0; }
+}

@@ -1,0 +1,52 @@
+/* Palette: Aurora (Revontulet). The one thought-out palette, chosen 2026-08-06.
+   The whole colour identity of the site is this one block. To reskin the site,
+   swap these tokens; nothing else references a colour directly.
+
+   Revontulet is the Finnish word for the northern lights and means "fox fires":
+   the folklore is that an arctic fox sweeps snow into the sky where it catches
+   light. The colours are the real auroral emission lines: atomic oxygen at
+   557.7 nm (the green) and ionised nitrogen near 428 nm (the violet), seen
+   against the deep blue-black of the polar-night sky. */
+:root {
+  --bg: #06121b;
+  --raise: #0c1e28;
+  --raise-hi: #143039;
+  --ink: #e9fff5;
+  --mute: #7ea895;
+  --line: #18343e;
+  --check: rgba(120, 255, 200, 0.02);
+  --field: rgba(0, 0, 0, 0.4);
+
+  --accent: #55f0a0;   /* oxygen, 557.7 nm */
+  --accent-2: #b06bff; /* nitrogen, ~428 nm */
+  --on-accent: #04140c;
+  --wash: rgba(85, 240, 160, 0.16);
+  --wash-2: rgba(176, 107, 255, 0.18);
+
+  /* sprite ramp: top (lightest), left, right (darkest), accent, cavity */
+  --px-1: #7dffb8;
+  --px-2: #3fcf85;
+  --px-3: #1f8f5a;
+  --px-a: #b06bff;
+  --px-a2: #7d3fd6; /* accent shadow, for item-icon depth */
+  --px-c: #0a1a16;
+
+  /* CVSS severity bands. Kept inside the aurora rather than borrowing the usual
+     traffic light: the 557.7 nm oxygen green again for low, sodium airglow
+     yellow, and the 630 nm oxygen red that only shows up in a strong display.
+     Every one of these clears 4.5:1 on --bg, --raise and --raise-hi, checked
+     rather than eyeballed. The band word is in the text next to the colour, so
+     nobody has to see the colour to read the severity. */
+  --sev-low: #55f0a0;
+  --sev-med: #ffd166;
+  --sev-high: #ff9f4a;
+  --sev-crit: #ff6b7f;
+
+  /* article colours, kept as tokens so the whole theme lives in this block */
+  --prose: #d3ecdf;      /* long-form body text, softer than --ink */
+  --code-bg: #04101a;    /* code block ground, a shade under --bg */
+  --code-ink: #cfe8dd;   /* code text */
+
+  /* long-form serif for article body: Redaction, same as the display face */
+  --v-serif: "Redaction", "New Century Schoolbook", Georgia, "Times New Roman", serif;
+}

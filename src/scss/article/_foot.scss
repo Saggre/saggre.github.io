@@ -1,0 +1,10 @@
+/* --- article footer: links only (no newsletter) --- */
+
+.art-foot {
+  max-width: var(--measure);
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.art-share { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.art-share__link { font-family: var(--v-mono); font-size: 0.8125rem; color: var(--accent); }

@@ -1,0 +1,6 @@
+// Everything a component may reach for: breakpoints and mixins. No file here
+// emits a single byte of CSS, so a component can `@use '../abstracts' as *`
+// without adding anything to the stylesheet.
+
+@forward 'breakpoints';
+@forward 'mixins';

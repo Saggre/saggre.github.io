@@ -1,0 +1,39 @@
+/* --- shared type --- */
+
+/* Small section label with a pixel ornament. Sentence case, quiet. */
+.vx-label {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.875rem;
+  font-family: var(--v-mono);
+  font-size: 0.75rem;
+  color: var(--mute);
+}
+
+.vx-h2 {
+  margin: 0;
+  font-family: var(--v-display);
+  font-size: clamp(1.625rem, 3.4vw, 2.375rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* A step down from vx-h2, for a subsection inside a section. */
+.vx-h3 {
+  margin: 0;
+  font-family: var(--v-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.vx-lead {
+  margin: 1.25rem 0 0;
+  max-width: 30rem;
+  color: var(--mute);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Extra breathing room where a lead sits directly above a block of columns. */
+.vx-lead--spaced { margin-bottom: 2.75rem; }

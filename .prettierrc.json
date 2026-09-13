@@ -1,0 +1,14 @@
+{
+  "printWidth": 100,
+  "htmlWhitespaceSensitivity": "css",
+  "bracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.{mjs,js}",
+      "options": {
+        "semi": false,
+        "singleQuote": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Scratch previews. Style explorations, icon comparisons and the fractal
+# animation gallery: tens of megabytes of candidates, none of it served.
+preview/
+
+# Intermediate output from tools/. The generators write these, the symbols get
+# pasted into the sprite sheet, and the loose file has no further use.
+symbols-*.svg
+
+# Python bytecode from the asset generators.
+__pycache__/
+
+# The build's output. It is regenerated from src/ on every run, and CI pushes
+# it to the deploy branch; it is never committed here.
+dist/
+
+# Eleventy's output on its way through Vite. Exists only mid-build.
+.11ty-vite/
+
+# npm.
+node_modules/

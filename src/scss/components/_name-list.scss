@@ -1,0 +1,16 @@
+/* --- name list: wrapped, linkable project names (generic) --- */
+
+.vx-names { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.vx-names__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--ink);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.vx-names__item::before { content: ""; width: var(--unit); height: var(--unit); background: var(--accent); align-self: center; }
+a.vx-names__item:hover { color: var(--accent); }
+/* What is actually at the other end of the link: merged, open, or a credit. */
+.vx-names__note { color: var(--mute); font-family: var(--v-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0; }

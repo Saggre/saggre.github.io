@@ -1,0 +1,16 @@
+/* FAQ definition list. */
+.vx-faq { margin: 0; padding: 0; }
+.vx-faq__item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.vx-faq__item:first-child { border-top: 1px solid var(--line); }
+.vx-faq__q {
+  margin: 0 0 0.5rem;
+  font-family: var(--v-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ink);
+}
+.vx-faq__a { margin: 0; max-width: var(--measure); color: var(--mute); font-size: 1rem; line-height: 1.65; }

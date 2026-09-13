@@ -1,0 +1,37 @@
+/* Redaction, by Titus Kaphar and Reginald Dwayne Betts, drawn by Forest Young
+   and Jeremy Mickel. Self-hosted woff2, SIL Open Font License 1.1.
+   Source: https://www.redaction.us/  License: assets/fonts/OFL.txt */
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/assets/fonts/redaction-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redaction";
+  src: url("/assets/fonts/redaction-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redaction";
+  src: url("/assets/fonts/redaction-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Grade 35: a light erosion. Used on large display text only, where it reads
+   as texture and stays legible. Never on body copy. */
+@font-face {
+  font-family: "Redaction 35";
+  src: url("/assets/fonts/redaction-35-regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Redaction 35";
+  src: url("/assets/fonts/redaction-35-bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}

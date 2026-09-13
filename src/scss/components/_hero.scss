@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+/* --- hero (generic page top) --- */
+
+.vx-hero { padding: 4.5rem 0 0; }
+.vx-hero__title {
+  margin: 0;
+  font-family: var(--v-eroded);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
+  font-weight: 700;
+  max-width: 16ch;
+}
+/* The mission line: the eroded cut, same as the title. Only two Redaction
+   grades are licensed into assets/fonts/, the clean one and 35, so 35 is as degraded
+   as this can get without adding a font file. It reads differently here anyway:
+   at this size the erosion is texture rather than damage, so the line stays
+   distinct from the 5rem title above it. Drop a Redaction 10 or 20 woff2 into
+   assets/fonts/ and this rule is the only place that needs to change. */
+.vx-hero__line {
+  max-width: 30ch;
+  margin: 1.75rem 0 0;
+  font-family: var(--v-eroded);
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.vx-hero__sub {
+  max-width: 34rem;
+  margin: 1.5rem 0 0;
+  color: var(--mute);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+/* The art is a raster now, not a sprite, so it needs nearest-neighbour scaling
+   to stay a pixel drawing instead of a blurry one. Centred on every width. */
+.vx-hero__art {
+  display: block;
+  width: min(300px, 66vw);
+  height: auto;
+  margin: 2rem auto 0;
+  image-rendering: pixelated;
+}
+
+@include small-only {
+  .vx-hero { padding: 2.5rem 0 0; }
+  .vx-hero__art { margin: 2rem auto 0; }
+}

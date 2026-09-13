@@ -1,0 +1,12 @@
+// Breakpoints. Foundation's XY grid switches from small to medium at 40em, so
+// a mobile-only override has to stop exactly where the grid does: one
+// hundredth of an em below it. Named once here rather than typed into every
+// component, which is how the two used to drift apart.
+
+$small-max: 39.99em;
+
+@mixin small-only {
+  @media screen and (max-width: $small-max) {
+    @content;
+  }
+}

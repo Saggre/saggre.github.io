@@ -1,0 +1,12 @@
+/* --- big bulleted list (generic) --- */
+
+.vx-list { margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.vx-list__item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.1875rem;
+  letter-spacing: -0.01em;
+}
+.vx-list__item:first-child { border-top: 1px solid var(--line); }

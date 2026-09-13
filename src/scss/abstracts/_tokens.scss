@@ -1,0 +1,9 @@
+:root {
+  --unit: 6px;                 /* pixel step: corners, marks, sprite grid */
+  --measure: 40rem;            /* comfortable reading width */
+  --v-display: "Redaction", "New Century Schoolbook", Georgia, "Times New Roman", serif;
+  /* lightly eroded cut for large display only; clean Redaction if it misses */
+  --v-eroded: "Redaction 35", "Redaction", "New Century Schoolbook", Georgia, serif;
+  --v-body: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --v-mono: ui-monospace, "JetBrains Mono", "DejaVu Sans Mono", monospace;
+}

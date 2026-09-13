@@ -1,0 +1,43 @@
+// -- vendor -------------------------------------------------------------------
+@use 'vendor/foundation.css';
+
+// -- base ---------------------------------------------------------------------
+@use 'base/fonts';
+@use 'abstracts/tokens';
+@use 'base/elements';
+@use 'base/typography';
+
+// -- component layer ----------------------------------------------------------
+@use 'components/sprite';
+@use 'components/card-facts';
+@use 'components/quote';
+@use 'components/top-bar';
+@use 'components/hero';
+@use 'components/section';
+@use 'components/card';
+@use 'components/deflist';
+@use 'components/name-list';
+@use 'components/list';
+@use 'components/panel';
+@use 'components/footer';
+@use 'components/faq';
+
+// -- utilities ----------------------------------------------------------------
+@use 'utilities/notch';
+
+// -- palette ------------------------------------------------------------------
+@use 'abstracts/palette';
+
+// -- article layer ------------------------------------------------------------
+@use 'article/article';
+@use 'article/toc';
+@use 'article/tldr';
+@use 'article/prose';
+@use 'article/note';
+@use 'article/table';
+@use 'article/code';
+@use 'article/foot';
+@use 'article/next';
+
+// -- accessibility ------------------------------------------------------------
+@use 'base/a11y';

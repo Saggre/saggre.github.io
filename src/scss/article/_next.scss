@@ -1,0 +1,18 @@
+/* --- next up --- */
+
+.art-next { max-width: var(--measure); margin-top: 3rem; }
+.art-next__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transition: color 0.16s;
+}
+.art-next__item:first-of-type { border-top: 1px solid var(--line); }
+.art-next__item:hover { color: var(--accent); }
+.art-next__art { width: 28px; height: 28px; flex: none; shape-rendering: crispEdges; }
+.art-next__body { display: flex; flex-direction: column; gap: 0.1875rem; }
+.art-next__kind { font-family: var(--v-mono); font-size: 0.6875rem; color: var(--mute); }
+.art-next__title { font-size: 1.1875rem; font-weight: 700; letter-spacing: -0.01em; }

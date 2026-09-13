@@ -1,0 +1,26 @@
+/* --- comparison table (Foundation table skin stripped back to hairlines) --- */
+
+.art-table-wrap { margin: 2rem 0; overflow-x: auto; }
+.art-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--v-body);
+  font-size: 0.875rem;
+  background: transparent;
+}
+.art-table thead,
+.art-table tbody,
+.art-table tfoot { background: transparent; border: 0; }
+.art-table tbody tr,
+.art-table tbody tr:nth-child(even) { background: transparent; }
+.art-table th,
+.art-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.art-table thead th { font-family: var(--v-mono); font-size: 0.6875rem; color: var(--mute); border-bottom-color: var(--accent); }
+.art-table tbody th { font-weight: 400; color: var(--mute); width: 30%; }
+.art-table td { color: var(--ink); }
+.art-table code { font-size: 0.85em; }

@@ -1,0 +1,9 @@
+{
+  "url": "https://saggre.com",
+  "author": "Sakri (Rafael) Koskimies",
+  "themeColor": "#06121b",
+  "ogImage": "/assets/img/og-default.png",
+  "ogImageAlt": "Sakri (Rafael) Koskimies, Agentic software development and security in Finland",
+  "feedTitle": "Sakri (Rafael) Koskimies research feed",
+  "feedDescription": "Development notes, engineering writeups and published CVE advisories by Sakri (Rafael) Koskimies."
+}

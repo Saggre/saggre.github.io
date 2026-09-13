@@ -1,0 +1,19 @@
+# Prettier formats the config and the data here, and nothing else.
+#
+# The pages are Eleventy templates: fragments that a layout indents, not whole
+# documents. Prettier would re-indent each one from column zero, which is right
+# for a document and wrong for a fragment, so the templates keep their
+# indentation by hand and the layout keeps its own.
+*.html
+*.njk
+
+# Generated, vendored, or written to a house style prettier would flatten.
+dist/
+node_modules/
+preview/
+public/
+src/scss/
+src/js/
+package-lock.json
+.claude/
+*.md

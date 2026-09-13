@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="{{ site.author }}" />
+    <meta name="theme-color" content="{{ site.themeColor }}" />
+    <meta property="og:type" content="{{ ogType or "website" }}" />
+    <meta property="og:site_name" content="{{ site.author }}" />
+    <meta property="og:title" content="{{ ogTitle or title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}{{ site.ogImage }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ site.ogImageAlt }}" />
+    <meta property="og:locale" content="en" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ ogTitle or title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta name="twitter:image" content="{{ site.url }}{{ site.ogImage }}" />
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ site.feedTitle }}"
+      href="/feed.xml" />
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+{% if schema %}{% include "schema/" + schema + ".html" %}{% endif %}  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+{% include "parts/sprite.html" -%}
+    <div class="vx">
+      <div class="vx__check" aria-hidden="true"></div>
+
+      <header class="vx-bar">
+        <div class="grid-container">
+          <div class="grid-x align-middle align-justify">
+            <div class="cell shrink">
+              <a class="vx-mark" href="/">
+                <img
+                  class="vx-mark__glyph"
+                  src="/assets/icons/favicon.svg"
+                  width="51"
+                  height="51"
+                  alt=""
+                  decoding="async" />
+                Sakri (Rafael) Koskimies
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main id="main">
+{{ content | safe }}      </main>
+
+      <footer class="vx-foot">
+        <div class="grid-container">
+          <div class="grid-x grid-margin-x">
+            <div class="cell small-12 medium-6">
+              <p class="vx-foot__line">
+                Sakri (Rafael) Koskimies. Software development and security, from Finland.
+              </p>
+            </div>
+            <div class="cell small-12 medium-6">
+              <nav class="vx-foot__links" aria-label="Elsewhere">
+                <a class="vx-foot__link" href="https://github.com/Saggre">GitHub @Saggre</a>
+                <a class="vx-foot__link" href="https://www.linkedin.com/in/saggre/">LinkedIn</a>
+                <a class="vx-foot__link" href="/feed.xml">RSS</a>
+                <a class="vx-foot__link" href="mailto:sakri.koskimies@hotmail.com"
+                  >sakri.koskimies@hotmail.com</a
+                >
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/js/hero-anim.js"></script>
+  </body>
+</html>
+
