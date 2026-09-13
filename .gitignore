@@ -1,3 +1,7 @@
+# IDE
+.idea
+.vscode
+
 # Scratch previews. Style explorations, icon comparisons and the fractal
 # animation gallery: tens of megabytes of candidates, none of it served.
 preview/
