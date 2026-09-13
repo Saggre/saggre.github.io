@@ -46,7 +46,8 @@
   font-weight: 600;
   font-size: 0.9375rem;
 }
-.vx-panel__cta:hover { background: var(--accent-2); color: var(--on-accent); }
+.vx-panel__cta:hover,
+.vx-panel__cta:focus { background: var(--accent-2); color: var(--on-accent); }
 
 @include small-only {
   .vx-panel { padding: 1.75rem 1.25rem; }

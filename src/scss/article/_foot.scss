@@ -8,3 +8,5 @@
 }
 .art-share { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .art-share__link { font-family: var(--v-mono); font-size: 0.8125rem; color: var(--accent); }
+.art-share__link:hover,
+.art-share__link:focus { color: var(--accent); }

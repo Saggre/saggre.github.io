@@ -3,19 +3,36 @@
 /* --- cards (generic) --- */
 
 .vx-cards { margin-top: 1.25rem; }
+
+/* A whole card is one link, so it is a keyboard stop. The stepped corners
+   therefore live on a background layer instead of on the card itself:
+   `clip-path` clips everything the element paints, and an outline is painted
+   outside the box it clips to, so a card that cut its own corners could never
+   show a focus ring. Only the layer behind the content is cut now; the card
+   keeps an ordinary outline. */
 .vx-card {
-  @include stepped-corners;
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 1.5rem;
-  background: var(--raise);
   color: inherit;
+}
+.vx-card::before {
+  @include stepped-corners;
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--raise);
   transition: background 0.18s;
 }
-.vx-card:hover { background: var(--raise-hi); color: inherit; }
-.vx-card--lead {
-  padding: 2rem;
+.vx-card:hover,
+.vx-card:focus { color: inherit; }
+.vx-card:hover::before { background: var(--raise-hi); }
+.vx-card--lead { padding: 2rem; }
+.vx-card--lead::before {
   background: linear-gradient(100deg, var(--wash), transparent 62%), var(--raise);
 }
 .vx-card__art { display: block; width: 60px; height: auto; }

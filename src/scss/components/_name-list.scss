@@ -11,6 +11,7 @@
   letter-spacing: -0.01em;
 }
 .vx-names__item::before { content: ""; width: var(--unit); height: var(--unit); background: var(--accent); align-self: center; }
-a.vx-names__item:hover { color: var(--accent); }
+a.vx-names__item:hover,
+a.vx-names__item:focus { color: var(--accent); }
 /* What is actually at the other end of the link: merged, open, or a credit. */
 .vx-names__note { color: var(--mute); font-family: var(--v-mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0; }

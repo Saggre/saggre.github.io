@@ -1,6 +1,8 @@
 /* --- attribution note --- */
 
 .art-note {
+  /* A table-of-contents jump lands here; keep it clear of the top edge. */
+  scroll-margin-top: 2rem;
   margin: 2rem 0;
   padding: 1.5rem 1.75rem;
   border-left: 3px solid var(--accent-2);
@@ -17,3 +19,5 @@
   border-bottom: 1px solid currentColor;
   padding-bottom: 0.125rem;
 }
+.art-note__cite:hover,
+.art-note__cite:focus { color: var(--accent-2); }

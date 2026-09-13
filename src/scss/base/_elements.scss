@@ -1,3 +1,9 @@
+:root {
+  /* Tells the browser this is a dark page, so the furniture it draws itself
+     (scrollbars, form controls, the default focus ring) comes out dark too. */
+  color-scheme: dark;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -5,7 +11,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.vx { position: relative; overflow: hidden; }
+/* Foundation paints links its own blue and darkens it further on :hover and
+   :focus. That blue reaches only 3.2:1 on this ground, and `a:focus` outranks a
+   plain class, so it used to repaint every link the moment a keyboard landed on
+   it. Links here take their colour from the component they belong to; this is
+   only the fallback for one that belongs to none. */
+a,
+a:hover,
+a:focus {
+  color: var(--accent);
+}
+
+/* `clip` rather than `hidden`: hidden makes this a scroll container, which both
+   swallows the focus ring of anything reaching the edge and stops the article's
+   sticky table of contents from sticking. clip contains the same overflow
+   without either side effect. */
+.vx { position: relative; overflow-x: clip; }
 
 /* Faint checkerboard ground. */
 .vx__check {

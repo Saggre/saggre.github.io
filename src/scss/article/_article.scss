@@ -15,7 +15,9 @@
   font-size: 0.75rem;
   color: var(--mute);
 }
-.art-crumbs a { color: var(--accent); }
+.art-crumbs a,
+.art-crumbs a:hover,
+.art-crumbs a:focus { color: var(--accent); }
 .art-crumbs__sep { color: var(--line); }
 
 .art-head {

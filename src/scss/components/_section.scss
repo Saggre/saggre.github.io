@@ -8,4 +8,5 @@
   border-bottom: 2px solid var(--accent);
   padding-bottom: 0.125rem;
 }
-.vx-more:hover { color: var(--accent); }
+.vx-more:hover,
+.vx-more:focus { color: var(--accent); }

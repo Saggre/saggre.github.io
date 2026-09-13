@@ -5,8 +5,17 @@
 .vx-foot { padding: 3rem 0 4rem; border-top: 1px solid var(--line); }
 .vx-foot__line { margin: 0 0 0.5rem; font-size: 0.9375rem; }
 .vx-foot__links { display: flex; flex-wrap: wrap; gap: 0.625rem 1.75rem; }
-.vx-foot__link { color: var(--mute); font-family: var(--v-mono); font-size: 0.75rem; }
-.vx-foot__link:hover { color: var(--accent); }
+/* padding-block carries the row to the 24px minimum pointer target: the text
+   is only 14px tall and the rows sit 10px apart, too close to lean on the
+   spacing exception. */
+.vx-foot__link {
+  padding-block: 0.3125rem;
+  color: var(--mute);
+  font-family: var(--v-mono);
+  font-size: 0.75rem;
+}
+.vx-foot__link:hover,
+.vx-foot__link:focus { color: var(--accent); }
 
 @include small-only {
   .vx-foot__link { display: inline-block; padding: 0.625rem 0; }

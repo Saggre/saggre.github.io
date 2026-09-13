@@ -17,5 +17,6 @@
   padding-left: 0.875rem;
   transition: color 0.16s, border-color 0.16s;
 }
-.art-toc__link:hover { color: var(--ink); }
+.art-toc__link:hover,
+.art-toc__link:focus { color: var(--ink); }
 .art-toc__link--on { color: var(--ink); border-left-color: var(--accent); }

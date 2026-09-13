@@ -11,7 +11,8 @@
   transition: color 0.16s;
 }
 .art-next__item:first-of-type { border-top: 1px solid var(--line); }
-.art-next__item:hover { color: var(--accent); }
+.art-next__item:hover,
+.art-next__item:focus { color: var(--accent); }
 .art-next__art { width: 28px; height: 28px; flex: none; shape-rendering: crispEdges; }
 .art-next__body { display: flex; flex-direction: column; gap: 0.1875rem; }
 .art-next__kind { font-family: var(--v-mono); font-size: 0.6875rem; color: var(--mute); }
