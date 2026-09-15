@@ -1,5 +1,14 @@
 /* --- shared type --- */
 
+/* Headings below the page title take the eroded grade. Named on the elements
+   as well as the classes so a new heading starts in the right face. */
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--v-eroded);
+}
+
 /* Small section label with a pixel ornament. Sentence case, quiet. */
 .vx-label {
   display: flex;
@@ -12,7 +21,7 @@
 
 .vx-h2 {
   margin: 0;
-  font-family: var(--v-display);
+  font-family: var(--v-eroded);
   font-size: clamp(1.625rem, 3.4vw, 2.375rem);
   line-height: 1.1;
   font-weight: 700;
@@ -21,7 +30,7 @@
 /* A step down from vx-h2, for a subsection inside a section. */
 .vx-h3 {
   margin: 0;
-  font-family: var(--v-display);
+  font-family: var(--v-eroded);
   font-size: clamp(1.25rem, 2.2vw, 1.5rem);
   line-height: 1.2;
   font-weight: 700;

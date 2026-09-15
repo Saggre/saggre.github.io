@@ -1,0 +1,128 @@
+@use '../abstracts' as *;
+
+/* --- card art: a ground behind the entry cards --- */
+
+/* A real element, not a pseudo-element: the art is drawn larger than the card
+   so the blur has pixels to sample at the edges, and something has to clip
+   that overflow. Keeping it off the card leaves the focus ring unclipped. */
+.vx-card__pane {
+  @include stepped-corners;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--raise);
+}
+
+/* The tint is graded, so its lightest stop is 9 points below this value. Below
+   about 68% there, --prose drops under 4.5:1 on the brighter grounds. */
+.vx-card--glass { --glass-blur: 3px; --glass-tint: 82%; }
+
+.vx-card--glass .vx-card__pane::before {
+  content: '';
+  position: absolute;
+  inset: -14%;
+  background-image: var(--art);
+  background-size: cover;
+  background-position: center;
+  filter: blur(var(--glass-blur)) saturate(1.15);
+  transition: filter 0.28s ease;
+}
+
+.vx-card--glass .vx-card__pane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    138deg,
+    color-mix(in srgb, var(--raise) calc(var(--glass-tint) - 9%), transparent),
+    color-mix(in srgb, var(--raise) var(--glass-tint), transparent) 62%,
+    color-mix(in srgb, var(--raise) calc(var(--glass-tint) + 9%), transparent)
+  );
+  transition: background 0.28s ease;
+}
+
+.vx-card--glass:hover .vx-card__pane::before,
+.vx-card--glass:focus-visible .vx-card__pane::before {
+  filter: blur(calc(var(--glass-blur) * 2.5)) saturate(1.3);
+}
+.vx-card--glass:hover .vx-card__pane::after,
+.vx-card--glass:focus-visible .vx-card__pane::after {
+  background: linear-gradient(
+    138deg,
+    color-mix(in srgb, var(--raise-hi) calc(var(--glass-tint) - 13%), transparent),
+    color-mix(in srgb, var(--raise-hi) calc(var(--glass-tint) - 4%), transparent) 62%,
+    color-mix(in srgb, var(--raise-hi) calc(var(--glass-tint) + 5%), transparent)
+  );
+}
+
+.vx-card--glass.vx-card--lead { --glass-blur: 2px; }
+
+/* A halftone ground. No blur, because hard dots are the point, and drawn once
+   at cover rather than repeated: the tiles are crops and only some of them
+   actually tile without a seam. */
+.vx-card--tex .vx-card__pane::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--art);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.vx-card--tex .vx-card__pane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    color-mix(in srgb, var(--raise) 90%, transparent),
+    color-mix(in srgb, var(--raise) 84%, transparent) 62%,
+    color-mix(in srgb, var(--raise) 66%, transparent)
+  );
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+.vx-card--tex:hover .vx-card__pane::after,
+.vx-card--tex:focus-visible .vx-card__pane::after { opacity: 0.9; }
+
+/* Keeps a card whose art fails to load from showing a hole. */
+.vx-card--art::before { background: var(--raise); }
+
+/* --mute was chosen against --raise, which is not a lit surface. Over art it
+   measures below 4:1; --prose clears the floor on every ground. */
+.vx-card--art .vx-card__text,
+.vx-card--art .vx-card__kind {
+  color: var(--prose);
+}
+
+/* The severity colours were picked against a dark ground, so the facts row
+   keeps one of its own rather than reading against the art. */
+.vx-card--art .vx-card__facts {
+  margin: 0.75rem -0.75rem 0;
+  padding: 0.75rem 0.75rem 0.5rem;
+  background: color-mix(in srgb, var(--bg) 91%, transparent);
+  border-top-color: color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+@media (prefers-contrast: more) {
+  .vx-card--glass,
+  .vx-card--glass.vx-card--lead { --glass-blur: 6px; --glass-tint: 88%; }
+}
+
+@media (forced-colors: active) {
+  .vx-card__pane { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vx-card--glass .vx-card__pane::before,
+  .vx-card--glass .vx-card__pane::after,
+  .vx-card--tex .vx-card__pane::after { transition: none; }
+}
+
+/* No dark side of the card left for the text at this width, so the tint
+   carries it. */
+@include small-only {
+  .vx-card--glass,
+  .vx-card--glass.vx-card--lead { --glass-tint: 84%; }
+}
