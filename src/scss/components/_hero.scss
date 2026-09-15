@@ -27,6 +27,15 @@
   text-wrap: balance;
 }
 
+/* Subheads in the hero's own text flow, so unlike a section heading they
+   space themselves, and they sit a size below one. */
+.vx-hero .vx-h2 {
+  margin-top: 2.75rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  line-height: 1.15;
+}
+.vx-hero .vx-h2 + .vx-hero__sub { margin-top: 0.625rem; }
+
 .vx-hero__sub {
   max-width: 34rem;
   margin: 1.5rem 0 0;
@@ -47,4 +56,5 @@
 @include small-only {
   .vx-hero { padding: 2.5rem 0 0; }
   .vx-hero__art { margin: 2rem auto 0; }
+  .vx-hero .vx-h2 { margin-top: 2rem; }
 }
