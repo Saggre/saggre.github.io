@@ -11,6 +11,26 @@
     radial-gradient(50% 130% at 100% 50%, var(--wash-2), transparent 62%),
     var(--raise);
 }
+/* ::before is spoken for by the gradient border, so the texture joins the
+   background stack: the two washes, a veil for contrast, then the tile. */
+.vx-panel--art {
+  background-image:
+    radial-gradient(50% 130% at 0% 50%, var(--wash), transparent 62%),
+    radial-gradient(50% 130% at 100% 50%, var(--wash-2), transparent 62%),
+    linear-gradient(color-mix(in srgb, var(--raise) 88%, transparent) 0 0),
+    var(--art);
+  background-size: auto, auto, auto, var(--tex-size, 460px);
+  background-position: center;
+  background-color: var(--raise);
+}
+
+@media (prefers-contrast: more) {
+  .vx-panel--art { background-image: none; }
+}
+@media (forced-colors: active) {
+  .vx-panel--art { background-image: none; }
+}
+
 .vx-panel::before {
   content: "";
   position: absolute;
@@ -25,7 +45,7 @@
 }
 .vx-panel__title {
   margin: 0 0 0.625rem;
-  font-family: var(--v-display);
+  font-family: var(--v-eroded);
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.1;
   font-weight: 700;
