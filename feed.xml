@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sakri (Rafael) Koskimies</title>
+    <link>https://saggre.com/writing/</link>
+    <atom:link href="https://saggre.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Development notes, engineering writeups and published CVE advisories by Sakri (Rafael) Koskimies.</description>
+    <language>en</language>
+    <item>
+      <title>shieldbreak</title>
+      <link>https://saggre.com/research/shieldbreak/</link>
+      <guid isPermaLink="true">https://saggre.com/research/shieldbreak/</guid>
+      <category>Writeup</category>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+      <description>I forgot the password to a ssh key. It was still loaded in the agent, so I pulled it back out of memory. Here is how.</description>
+    </item>
+    <item>
+      <title>CVE-2025-9427</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2025-9427</link>
+      <guid isPermaLink="false">cve-2025-9427</guid>
+      <category>Advisory</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 GMT</pubDate>
+      <description>Reflected XSS in the Lemonsoft WordPress add-on. Lemonsoft is a Finnish ERP company listed on Nasdaq First North in Helsinki.</description>
+    </item>
+    <item>
+      <title>CVE-2022-3246</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3246</link>
+      <guid isPermaLink="false">cve-2022-3246</guid>
+      <category>Advisory</category>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
+      <description>SQL injection in Blog2Social, a plugin on 50,000-plus sites at the time.</description>
+    </item>
+    <item>
+      <title>CVE-2022-3494</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3494</link>
+      <guid isPermaLink="false">cve-2022-3494</guid>
+      <category>Advisory</category>
+      <pubDate>Mon, 07 Nov 2022 00:00:00 GMT</pubDate>
+      <description>SQL injection in Complianz, which ran on over a million sites.</description>
+    </item>
+    <item>
+      <title>CVE-2022-3247</title>
+      <link>https://www.cve.org/CVERecord?id=CVE-2022-3247</link>
+      <guid isPermaLink="false">cve-2022-3247</guid>
+      <category>Advisory</category>
+      <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
+      <description>Server-side request forgery in Blog2Social.</description>
+    </item>
+  </channel>
+</rss>
