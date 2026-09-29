@@ -17,7 +17,7 @@
     "year": 2026,
     "title": "CVE-2026-62062",
     "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
-    "art": "share-sweep-a",
+    "art": "share-cve-2026-62062",
     "artKind": "scrim",
     "description": "CSRF in Elementor, which runs on over 10 million sites. One link opened by a logged-in user carries out any REST API action their account allows, up to creating a rogue admin.",
     "severity": {
@@ -25,7 +25,8 @@
       "label": "CVSS 3.1 8.8 high"
     },
     "affected": "Elementor <= 4.3.1",
-    "date": "2026-09-25"
+    "date": "2026-09-25",
+    "cube": ["#f77ef7", "#ed01ee", "#90157b"]
   },
   {
     "id": "cve-2026-66575",
@@ -33,7 +34,7 @@
     "year": 2026,
     "title": "CVE-2026-66575",
     "href": "https://www.cve.org/CVERecord?id=CVE-2026-66575",
-    "art": "share-sweep-c",
+    "art": "share-cve-2026-66575",
     "artKind": "scrim",
     "description": "Unauthenticated insecure direct object reference in King Addons for Elementor, a plugin on 10,000-plus sites.",
     "severity": {
@@ -41,7 +42,8 @@
       "label": "CVSS 3.1 5.3 medium"
     },
     "affected": "King Addons <= 51.1.81",
-    "date": "2026-09-17"
+    "date": "2026-09-17",
+    "cube": ["#c98bff", "#a533ff", "#574ff7"]
   },
   {
     "id": "cve-2025-9427",
@@ -49,7 +51,7 @@
     "year": 2025,
     "title": "CVE-2025-9427",
     "href": "https://www.cve.org/CVERecord?id=CVE-2025-9427",
-    "art": "share-note",
+    "art": "share-cve-2025-9427",
     "artKind": "scrim",
     "description": "Reflected XSS in the Lemonsoft WordPress add-on. Lemonsoft is a Finnish ERP company listed on Nasdaq First North in Helsinki.",
     "severity": {
@@ -57,7 +59,8 @@
       "label": "CVSS 4.0 8.4 high"
     },
     "affected": "Lemonsoft add-on 2025.7.1",
-    "date": "2026-01-13"
+    "date": "2026-01-13",
+    "cube": ["#ffe066", "#f8c300", "#a88400"]
   },
   {
     "id": "cve-2022-3246",
@@ -65,7 +68,7 @@
     "year": 2022,
     "title": "CVE-2022-3246",
     "href": "https://www.cve.org/CVERecord?id=CVE-2022-3246",
-    "art": "share-home",
+    "art": "share-cve-2022-3246",
     "artKind": "scrim",
     "description": "SQL injection in Blog2Social, a plugin on 50,000-plus sites at the time.",
     "severity": {
@@ -73,7 +76,8 @@
       "label": "CVSS 3.1 8.8 high"
     },
     "affected": "Blog2Social < 6.9.10",
-    "date": "2022-10-25"
+    "date": "2022-10-25",
+    "cube": ["#b4df7c", "#79b331", "#4f7f1c"]
   },
   {
     "id": "cve-2022-3494",
@@ -81,7 +85,7 @@
     "year": 2022,
     "title": "CVE-2022-3494",
     "href": "https://www.cve.org/CVERecord?id=CVE-2022-3494",
-    "art": "share-advisory",
+    "art": "share-cve-2022-3494",
     "artKind": "scrim",
     "description": "SQL injection in Complianz, which ran on over a million sites.",
     "severity": {
@@ -89,7 +93,8 @@
       "label": "CVSS 3.1 8.8 high"
     },
     "affected": "Complianz < 6.3.4, premium < 6.3.6",
-    "date": "2022-11-07"
+    "date": "2022-11-07",
+    "cube": ["#7fcfff", "#009fff", "#007bbc"]
   },
   {
     "id": "cve-2022-3247",
@@ -97,7 +102,7 @@
     "year": 2022,
     "title": "CVE-2022-3247",
     "href": "https://www.cve.org/CVERecord?id=CVE-2022-3247",
-    "art": "share-sweep-b",
+    "art": "share-cve-2022-3247",
     "artKind": "scrim",
     "description": "Server-side request forgery in Blog2Social.",
     "severity": {
@@ -105,6 +110,7 @@
       "label": "CVSS 3.1 6.5 medium"
     },
     "affected": "Blog2Social < 6.9.10",
-    "date": "2022-10-25"
+    "date": "2022-10-25",
+    "cube": ["#b4df7c", "#79b331", "#4f7f1c"]
   }
 ]
