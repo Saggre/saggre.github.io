@@ -12,6 +12,38 @@
     "date": "2026-02-01"
   },
   {
+    "id": "cve-2026-62062",
+    "type": "Advisory",
+    "year": 2026,
+    "title": "CVE-2026-62062",
+    "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
+    "art": "share-sweep-a",
+    "artKind": "scrim",
+    "description": "CSRF in Elementor, which runs on over 10 million sites. One link opened by a logged-in user carries out any REST API action their account allows, up to creating a rogue admin.",
+    "severity": {
+      "band": "high",
+      "label": "CVSS 3.1 8.8 high"
+    },
+    "affected": "Elementor <= 4.3.1",
+    "date": "2026-09-25"
+  },
+  {
+    "id": "cve-2026-66575",
+    "type": "Advisory",
+    "year": 2026,
+    "title": "CVE-2026-66575",
+    "href": "https://www.cve.org/CVERecord?id=CVE-2026-66575",
+    "art": "share-sweep-c",
+    "artKind": "scrim",
+    "description": "Unauthenticated insecure direct object reference in King Addons for Elementor, a plugin on 10,000-plus sites.",
+    "severity": {
+      "band": "med",
+      "label": "CVSS 3.1 5.3 medium"
+    },
+    "affected": "King Addons <= 51.1.81",
+    "date": "2026-09-17"
+  },
+  {
     "id": "cve-2025-9427",
     "type": "Advisory",
     "year": 2025,
