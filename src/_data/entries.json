@@ -16,7 +16,11 @@
     "type": "Advisory",
     "year": 2026,
     "title": "CVE-2026-62062",
-    "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html",
+    "href": "https://patchstack.com/database/wordpress/plugin/elementor/vulnerability/wordpress-elementor-website-builder-plugin-4-3-1-cross-site-request-forgery-csrf-vulnerability",
+    "links": [
+      { "label": "The Hacker News", "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html" },
+      { "label": "Patchstack writeup", "href": "https://patchstack.com/articles/cross-site-request-forgery-in-elementor-plugin-affecting-2-million-sites/" }
+    ],
     "art": "share-cve-2026-62062",
     "artKind": "scrim",
     "description": "CSRF in Elementor, which runs on over 10 million sites. One link opened by a logged-in user carries out any REST API action their account allows, up to creating a rogue admin.",
@@ -29,7 +33,43 @@
     "cube": ["#f77ef7", "#ed01ee", "#90157b"]
   },
   {
+    "id": "cve-2026-113813",
+    "brief": true,
+    "type": "Advisory",
+    "year": 2026,
+    "title": "CVE-2026-113813",
+    "href": "https://wpscan.com/vulnerability/6decb385-7cc9-42d7-a079-0a96d1f697fc/",
+    "art": "share-cve-2026-113813",
+    "artKind": "scrim",
+    "description": "Missing authorization in PayPlug for WooCommerce, a payment gateway on 4,000-plus stores. Anyone could read, change or delete orders without logging in.",
+    "severity": {
+      "band": "med",
+      "label": "CVSS 3.1 6.5 medium"
+    },
+    "affected": "PayPlug 2.8.0 to 3.1.0",
+    "date": "2026-10-26",
+    "cube": ["#7ff0d4", "#00c49a", "#00704f"]
+  },
+  {
+    "id": "cve-2026-95526",
+    "type": "Advisory",
+    "year": 2026,
+    "title": "CVE-2026-95526",
+    "href": "https://patchstack.com/database/wordpress/plugin/woo-bulk-editor/vulnerability/wordpress-bear-plugin-1-2-2-broken-access-control-vulnerability",
+    "art": "share-cve-2026-95526",
+    "artKind": "scrim",
+    "description": "Broken access control in BEAR, a bulk product editor for WooCommerce on 30,000-plus stores.",
+    "severity": {
+      "band": "high",
+      "label": "CVSS 3.1 7.3 high"
+    },
+    "affected": "BEAR <= 1.2.2",
+    "date": "2026-10-04",
+    "cube": ["#ffc77f", "#f08a00", "#8a4a00"]
+  },
+  {
     "id": "cve-2026-66575",
+    "brief": true,
     "type": "Advisory",
     "year": 2026,
     "title": "CVE-2026-66575",
@@ -44,6 +84,24 @@
     "affected": "King Addons <= 51.1.81",
     "date": "2026-09-17",
     "cube": ["#c98bff", "#a533ff", "#574ff7"]
+  },
+  {
+    "id": "patchstack-learning-management-system",
+    "brief": true,
+    "type": "Advisory",
+    "year": 2026,
+    "title": "Masteriyo LMS",
+    "href": "https://patchstack.com/database/wordpress/plugin/learning-management-system/vulnerability/wordpress-masteriyo-lms-plugin-3-4-3-arbitrary-content-deletion-vulnerability",
+    "art": "share-patchstack-masteriyo",
+    "artKind": "scrim",
+    "description": "Arbitrary content deletion in Masteriyo, a course builder and learning management plugin on 6,000-plus sites.",
+    "severity": {
+      "band": "med",
+      "label": "CVSS 3.1 6.5 medium"
+    },
+    "affected": "Masteriyo <= 3.4.3",
+    "date": "2026-09-02",
+    "cube": ["#a9acff", "#5b62ff", "#2c2f99"]
   },
   {
     "id": "cve-2025-9427",
@@ -98,6 +156,7 @@
   },
   {
     "id": "cve-2022-3247",
+    "brief": true,
     "type": "Advisory",
     "year": 2022,
     "title": "CVE-2022-3247",
