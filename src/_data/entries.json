@@ -18,8 +18,14 @@
     "title": "CVE-2026-62062",
     "href": "https://patchstack.com/database/wordpress/plugin/elementor/vulnerability/wordpress-elementor-website-builder-plugin-4-3-1-cross-site-request-forgery-csrf-vulnerability",
     "links": [
-      { "label": "The Hacker News", "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html" },
-      { "label": "Patchstack writeup", "href": "https://patchstack.com/articles/cross-site-request-forgery-in-elementor-plugin-affecting-2-million-sites/" }
+      {
+        "label": "The Hacker News",
+        "href": "https://thehackernews.com/2026/09/elementor-csrf-flaw-lets-attackers-take.html"
+      },
+      {
+        "label": "Patchstack writeup",
+        "href": "https://patchstack.com/articles/cross-site-request-forgery-in-elementor-plugin-affecting-2-million-sites/"
+      }
     ],
     "art": "share-cve-2026-62062",
     "artKind": "scrim",
