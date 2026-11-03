@@ -32,6 +32,31 @@
       title="{{ site.feedTitle }}"
       href="/feed.xml" />
     <link rel="stylesheet" href="/src/scss/main.scss" />
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      })
+      gtag('js', new Date())
+      gtag('config', '{{ site.gaId }}')
+      dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+    </script>
+    <script
+      type="text/plain"
+      data-category="analytics"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
+    <script
+      type="text/plain"
+      data-category="analytics"
+      async
+      src="https://www.googletagmanager.com/gtm.js?id={{ site.gtmId }}"></script>
 {% if schema %}{% include "schema/" + schema + ".html" %}{% endif %}  </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -73,6 +98,9 @@
                 <a class="vx-foot__link" href="https://github.com/Saggre">GitHub @Saggre</a>
                 <a class="vx-foot__link" href="https://www.linkedin.com/in/saggre/">LinkedIn</a>
                 <a class="vx-foot__link" href="/feed.xml">RSS</a>
+                <button class="vx-foot__link" type="button" data-cc="show-preferencesModal">
+                  Cookie settings
+                </button>
                 <a class="vx-foot__link" href="mailto:sakri.koskimies@hotmail.com"
                   >sakri.koskimies@hotmail.com</a
                 >
@@ -83,6 +111,7 @@
       </footer>
     </div>
     <script type="module" src="/src/js/hero-anim.js"></script>
+    <script type="module" src="/src/js/consent.js"></script>
   </body>
 </html>
 
