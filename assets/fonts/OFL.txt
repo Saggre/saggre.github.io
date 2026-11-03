@@ -1,0 +1,13 @@
+Redaction typeface — SIL Open Font License, Version 1.1.
+
+Redaction was commissioned by Titus Kaphar and Reginald Dwayne Betts for
+"The Redaction" exhibition at MoMA PS1, and drawn by Forest Young and
+Jeremy Mickel. It is distributed under the SIL Open Font License 1.1.
+
+Source and full license: https://www.redaction.us/
+
+The full OFL 1.1 text is available at:
+https://openfontlicense.org/open-font-license-official-text/
+
+Bundled here (Regular, Italic, Bold, and Grade 35 Regular) as woff2 for
+self-hosting, as permitted by the OFL.
